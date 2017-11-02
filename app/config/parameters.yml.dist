@@ -1,0 +1,23 @@
+parameters:
+    base_url: ~
+
+    #Database
+    database_host: '127.0.0.1'
+    database_port: '3306'
+    database_name: 'esgi-yearly'
+    database_user: 'root'
+    database_password: ~
+
+    #Mailer
+    mailer_transport: 'smtp'
+    mailer_host: '127.0.0.1'
+    mailer_user: ~
+    mailer_password: ~
+
+    #Secret for security
+    secret: ~ #generate using google (y)
+
+    #SSH for token Auth
+    ssh_private: ~ #generate with `openssl genrsa -out <private_key_path> -aes256 4096`
+    ssh_public: ~ #generate with `openssl rsa -pubout -in <private_key_path> -out <public_key_path>`
+    ssh_passphrase: ~ #inform the private key password used to generate the key

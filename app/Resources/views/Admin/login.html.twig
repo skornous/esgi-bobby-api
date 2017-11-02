@@ -1,0 +1,7 @@
+{% extends "::base.html.twig" %}
+{% block title %}Login to admin panel{% endblock %}
+{% block body %}
+    {{ form_start(loginForm) }}
+    {{ form_widget(loginForm) }}
+    {{ form_end(loginForm) }}
+{% endblock %}

@@ -1,0 +1,24 @@
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: true
+        public: false
+
+    AppBundle\:
+        resource: '../../src/AppBundle/*'
+        exclude: '../../src/AppBundle/{Entity,Repository,Tests}'
+
+    AppBundle\Controller\:
+        resource: '../../src/AppBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    yearlyapi.security.jwtconfiguration:
+        class: 'AppBundle\Security\JwtConfiguration'
+        public: true
+        arguments: ['%ssh_private%', '%ssh_passphrase%']
+
+    yearlyapi.security.tokenauthenticator:
+            class: 'AppBundle\Security\Authenticator\TokenAuthenticator'
+            public: true
+            arguments: ['@yearlyapi.security.jwtconfiguration', '%ssh_public%']
